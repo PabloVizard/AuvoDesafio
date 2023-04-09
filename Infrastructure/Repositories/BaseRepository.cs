@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class BaseRepository<T>: IBaseRepository<T> where T : class
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         private readonly string _filePath;
 
@@ -25,20 +25,20 @@ namespace Infrastructure.Repositories
         {
             var file = _filePath;
 
-            var entities = new List<T>();
+            var database = new List<T>();
 
-            var entitiesFromFile = await ReadFileAsync(file);
-            lock (entities)
+            var databaseCSV = await ReadFileAsync(file);
+            lock (database)
             {
-                entities.AddRange(entitiesFromFile);
+                database.AddRange(databaseCSV);
             }
 
-            return entities;
+            return database;
         }
 
         protected virtual async Task<List<T>> ReadFileAsync(string filePath)
         {
-            var entities = new List<T>();
+            var databaseCSV = new List<T>();
 
             using var reader = new StreamReader(filePath, Encoding.GetEncoding("ISO-8859-1"));
             var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -49,9 +49,9 @@ namespace Infrastructure.Repositories
             csv.Read();
             csv.ReadHeader();
             var records = await csv.GetRecordsAsync<T>().ToListAsync();
-            entities.AddRange(records);
+            databaseCSV.AddRange(records);
 
-            return entities;
+            return databaseCSV;
         }
     }
 }
