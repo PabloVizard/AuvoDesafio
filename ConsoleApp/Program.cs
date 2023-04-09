@@ -1,4 +1,6 @@
-﻿using Infrastructure.Repositories;
+﻿using Application.Application;
+using Domain.Services;
+using Infrastructure.Repositories;
 using System;
 
 namespace ConsoleApp
@@ -17,6 +19,10 @@ namespace ConsoleApp
             foreach (var file in files)
             {
                 var _folhaDePontoRepo = new FolhaDePontoRepository(file);
+                var _folhaDePontoService = new FolhaDePontoService(_folhaDePontoRepo);
+                var _folhaDePontoApp = new FolhaDePontoApp(_folhaDePontoService);
+
+                var folhaDePonto = await _folhaDePontoApp.GetAllAsync();
             }
 
 
