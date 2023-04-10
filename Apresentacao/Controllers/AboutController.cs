@@ -1,8 +1,8 @@
-﻿using Apresentacao.Models;
+﻿using WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Apresentacao.Controllers
+namespace WebApp.Controllers
 {
     public class AboutController : Controller
     {
