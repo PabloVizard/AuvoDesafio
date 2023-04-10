@@ -1,0 +1,25 @@
+﻿<link rel="stylesheet" href="~/css/styles.css">
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="nav-bar text-center">Desafio Desenvolvimento - Auvo Sistemas</h1>
+    </div>
+    <div class="card-body">
+        <div class="text-center">
+            <div class="perfil">
+                <a> <img src="https://i.imgur.com/3l6PPcx.jpeg" alt="Pablo Ferreira" width="140" height="140" style="border-radius: 50%" class="imgPerfil"> </a>
+                <h1 class="nome-perfil">@ViewBag.Nome</h1>
+            </div>
+
+            <p>Cargo Pretendido: @ViewBag.CargoPretendido</p>
+            <p>Pretensão Salarial: @ViewBag.PretensaoSalarial</p>
+            <p>Data do Teste: @ViewBag.DataTeste</p>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,17 @@
+p {
+    font-size: 1.2em;
+}
+.about{
+    text-align: justify;
+}
+
+.imgPerfil {
+    border-radius: 50px;
+}
+.perfil {
+    display: flex;
+    place-content: center;
+}
+.nome-perfil {
+    align-self: center;
+}
